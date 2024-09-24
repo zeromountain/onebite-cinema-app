@@ -24,8 +24,8 @@ export default function SearchForm() {
 
   useEffect(() => {
     if (inputRef.current) {
-      if (!search) {
-        inputRef.current.value = "";
+      if (search) {
+        inputRef.current.value = search;
       }
     }
   }, [search]);
