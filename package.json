@@ -13,6 +13,7 @@
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "return-fetch": "^0.4.6",
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
