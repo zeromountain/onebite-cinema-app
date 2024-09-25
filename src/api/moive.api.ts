@@ -11,41 +11,79 @@ class MovieApi {
   }
 
   async getMovies(): Promise<Movie[]> {
-    const response = await this.instance("/movie", {
-      method: "GET",
-      cache: "force-cache",
-    });
+    try {
+      const response = await this.instance("/movie", {
+        method: "GET",
+        cache: "force-cache",
+      });
 
-    return response.json();
+      console.log(response);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch movies: getMovies");
+      }
+
+      return response.json();
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
   }
 
-  async getMovie(id: string): Promise<Movie> {
-    const response = await this.instance(`/movie/${id}`, {
-      method: "GET",
-      cache: "force-cache",
-    });
+  async getMovie(id: string): Promise<Movie | null> {
+    try {
+      const response = await this.instance(`/movie/${id}`, {
+        method: "GET",
+        cache: "force-cache",
+      });
 
-    return response.json();
+      if (!response.ok) {
+        throw new Error(`Failed to fetch movie ${id}`);
+      }
+
+      return response.json();
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
   }
 
   async getMoviesByQuery(query?: string): Promise<Movie[]> {
-    const response = await this.instance(`/movie/search?q=${query}`, {
-      method: "GET",
-      cache: "force-cache",
-    });
+    try {
+      const response = await this.instance(`/movie/search?q=${query}`, {
+        method: "GET",
+        cache: "force-cache",
+      });
 
-    return response.json();
+      if (!response.ok) {
+        throw new Error("Failed to fetch movies");
+      }
+
+      return response.json();
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
   }
 
   async getRecommendMovies(): Promise<Movie[]> {
-    const response = await this.instance("/movie/random", {
-      method: "GET",
-      next: {
-        revalidate: 3,
-      },
-    });
+    try {
+      const response = await this.instance("/movie/random", {
+        method: "GET",
+        next: {
+          revalidate: 3,
+        },
+      });
 
-    return response.json();
+      if (!response.ok) {
+        throw new Error("Failed to fetch movies");
+      }
+
+      return response.json();
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
   }
 }
 

@@ -1,6 +1,12 @@
 import movieApi from "@/api/moive.api";
 import BlurImage from "@/components/common/blur-image";
 
+export const generateStaticParams = async () => {
+  const movies = await movieApi.getMovies();
+
+  return movies.map((movie) => ({ id: String(movie.id) }));
+};
+
 export default async function MoviePage({
   params,
 }: {

@@ -8,7 +8,7 @@ export default function SearchableLayout({
 }) {
   return (
     <>
-      <Suspense>
+      <Suspense fallback={<div>로딩중...</div>}>
         <SearchForm />
       </Suspense>
       {children}
