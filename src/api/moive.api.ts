@@ -17,8 +17,6 @@ class MovieApi {
         cache: "force-cache",
       });
 
-      console.log(response);
-
       if (!response.ok) {
         throw new Error("Failed to fetch movies: getMovies");
       }
