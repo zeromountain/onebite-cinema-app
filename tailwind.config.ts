@@ -16,6 +16,15 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+      keyframes: {
+        netflixLoader: {
+          "0%": { left: "-45%" },
+          "100%": { left: "100%" },
+        },
+      },
+      animation: {
+        netflixLoader: "netflixLoader 1.5s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

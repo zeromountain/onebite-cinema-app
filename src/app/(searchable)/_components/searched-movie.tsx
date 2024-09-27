@@ -2,6 +2,7 @@ import movieApi from "@/api/moive.api";
 import MovieItem from "@/components/movie-item";
 
 export default async function SearchedMovie({ q }: { q?: string }) {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const searchedMovies = await movieApi.getMoviesByQuery(q);
 
   return (

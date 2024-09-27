@@ -1,5 +1,6 @@
-import SearchForm from "@/components/common/search-form";
 import { Suspense } from "react";
+
+import SearchForm from "@/components/common/search-form";
 
 export default function SearchableLayout({
   children,
@@ -8,7 +9,7 @@ export default function SearchableLayout({
 }) {
   return (
     <>
-      <Suspense fallback={<div>로딩중...</div>}>
+      <Suspense>
         <SearchForm />
       </Suspense>
       {children}
