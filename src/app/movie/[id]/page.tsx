@@ -1,5 +1,7 @@
 import movieApi from "@/api/moive.api";
 import BlurImage from "@/components/common/blur-image";
+import { delay } from "@/utils/delay";
+import { notFound } from "next/navigation";
 
 export const generateStaticParams = async () => {
   const movies = await movieApi.getMovies();
@@ -12,10 +14,11 @@ export default async function MoviePage({
 }: {
   params: { id: string };
 }) {
+  await delay(3000);
   const movie = await movieApi.getMovie(params.id);
 
   if (!movie) {
-    return <div>영화 정보를 찾을 수 없습니다.</div>;
+    notFound();
   }
 
   return (
