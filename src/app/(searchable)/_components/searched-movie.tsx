@@ -1,3 +1,5 @@
+import React from "react";
+
 import movieApi from "@/api/moive.api";
 import MovieItem from "@/components/movie-item";
 import { delay } from "@/utils/delay";
