@@ -1,9 +1,6 @@
 import React from "react";
 
 import movieApi from "@/api/moive.api";
-import BlurImage from "@/components/common/blur-image";
-import { delay } from "@/utils/delay";
-import { notFound } from "next/navigation";
 import MovieInfo from "./_components/movie-info";
 import ReviewForm from "./_components/review-form";
 import ReviewList from "./_components/review-list";

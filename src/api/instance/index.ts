@@ -6,12 +6,9 @@ const instance = returnFetch({
   baseUrl: CONFIG.API_URL,
   interceptors: {
     request: async (requestArgs, fetch) => {
-      console.log("request", requestArgs);
       return requestArgs;
     },
     response: async (response, requestArgs, fetch) => {
-      console.log("response", response);
-
       if (response.status >= 500) {
         throw new Error("서버 에러");
       }
