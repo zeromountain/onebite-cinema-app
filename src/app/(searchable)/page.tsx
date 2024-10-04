@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 
 import RecommendedMovie from "./_components/recommended-movie";
 import AlllMovie from "./_components/all-movie";

@@ -30,6 +30,9 @@ export class ReviewApi {
   async getReviews(movieId: string) {
     const response = await this.instance(`/review/movie/${movieId}`, {
       method: "GET",
+      next: {
+        tags: [`${movieId}-reviews`],
+      },
     });
 
     return response.json();
@@ -46,9 +49,11 @@ export class ReviewApi {
   }
 
   async deleteReview(reviewId: string) {
-    await this.instance(`/review/${reviewId}`, {
+    const response = await this.instance(`/review/${reviewId}`, {
       method: "DELETE",
     });
+
+    return response.json();
   }
 }
 
