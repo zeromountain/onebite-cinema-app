@@ -35,17 +35,17 @@ export default async function MovieInfo({ id }: MovieInfoProps) {
         />
       </section>
       {/* 영화 정보 영역 */}
-      <section className="flex flex-col gap-4">
-        <h3 className="text-2xl font-bold">{movie.title}</h3>
+      <section className="flex flex-col gap-4 p-4">
+        <h3 className="text-2xl font-bold text-white">{movie.title}</h3>
         <div className="flex gap-2 text-sm">
-          <p>{movie.releaseDate}</p>
+          <p className="text-white">{movie.releaseDate}</p>
           <span className="text-gray-500">|</span>
-          <p>{movie.genres.join(", ")}</p>
+          <p className="text-white">{movie.genres.join(", ")}</p>
           <span className="text-gray-500">|</span>
-          <p>{movie.runtime}분</p>
+          <p className="text-white">{movie.runtime}분</p>
         </div>
         <p className="text-sm font-light text-gray-300">{movie.company}</p>
-        <h4 className="text-lg font-bold">{movie.subTitle}</h4>
+        <h4 className="text-lg font-bold text-white">{movie.subTitle}</h4>
         <p className="text-sm text-yellow-200 font-semibold">
           {movie.description}
         </p>

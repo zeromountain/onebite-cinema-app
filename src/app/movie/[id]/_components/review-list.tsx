@@ -10,7 +10,7 @@ export default async function ReviewList({ movieId }: ReviewListProps) {
   const reviews = await reviewApi.getReviews(movieId);
 
   return (
-    <div className="mt-8">
+    <div className="mt-4 p-4">
       <h2 className="text-2xl font-bold mb-4 text-white">
         리뷰 {reviews.length}개
       </h2>

@@ -11,7 +11,7 @@ interface MovieItemProps {
 
 export default function MovieItem({ movie, w, h }: MovieItemProps) {
   return (
-    <Link href={`/movie/${movie.id}`}>
+    <Link id={movie.id.toString()} href={`/movie/${movie.id}`}>
       <BlurImage
         src={movie.posterImgUrl}
         alt={movie.title}
