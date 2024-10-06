@@ -1,6 +1,17 @@
 import { Suspense } from "react";
 import SearchedMovie from "../_components/searched-movie";
 import SkeletonList from "../_components/skeleton-list";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { q: string };
+}): Promise<Metadata> {
+  return {
+    title: `한입시네마 - 검색 : ${searchParams.q}`,
+  };
+}
 
 export default function SearchPage({
   searchParams: { q },
