@@ -2,15 +2,12 @@ import { notFound } from "next/navigation";
 
 import movieApi from "@/api/moive.api";
 import BlurImage from "@/components/common/blur-image";
-import { delay } from "@/utils/delay";
 
 interface MovieInfoProps {
   id: string;
 }
 
 export default async function MovieInfo({ id }: MovieInfoProps) {
-  await delay(3000);
-
   const movie = await movieApi.getMovie(id);
 
   if (!movie) {

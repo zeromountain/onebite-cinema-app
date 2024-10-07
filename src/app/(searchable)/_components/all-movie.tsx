@@ -1,9 +1,7 @@
 import movieApi from "@/api/moive.api";
 import MovieItem from "@/components/movie-item";
-import { delay } from "@/utils/delay";
 
 export default async function AlllMovie() {
-  await delay(3000);
   const movies = await movieApi.getMovies();
 
   return (

@@ -1,9 +1,7 @@
 import movieApi from "@/api/moive.api";
 import MovieItem from "@/components/movie-item";
-import { delay } from "@/utils/delay";
 
 export default async function RecommendedMovie() {
-  await delay(3000);
   const recommendMovies = await movieApi.getRecommendMovies();
 
   return (
