@@ -10,6 +10,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   return {
     title: `한입시네마 - 검색 : ${searchParams.q}`,
+    description: `한입시네마에서 검색한 결과입니다.`,
+    openGraph: {
+      title: `한입시네마 - 검색 : ${searchParams.q}`,
+      description: `한입시네마에서 검색한 결과입니다.`,
+      images: ["/thumbnail.png"],
+    },
   };
 }
 

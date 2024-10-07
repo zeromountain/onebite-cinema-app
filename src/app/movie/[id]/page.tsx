@@ -5,6 +5,7 @@ import MovieInfo from "./_components/movie-info";
 import ReviewForm from "./_components/review-form";
 import ReviewList from "./_components/review-list";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const generateStaticParams = async () => {
   const movies = await movieApi.getMovies();
@@ -17,29 +18,26 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const movie = await movieApi.getMovie(params.id);
+  try {
+    const movie = await movieApi.getMovie(params.id);
 
-  if (!movie) {
+    if (!movie) {
+      throw new Error("해당하는 영화 정보를 찾을 수 없습니다.");
+    }
+
     return {
-      title: "한입시네마",
-      description: "해당하는 영화 정보를 찾을 수 없습니다.",
+      title: `한입시네마 | ${movie.title}`,
+      description: movie.description,
       openGraph: {
-        title: "한입시네마",
-        description: "해당하는 영화 정보를 찾을 수 없습니다.",
-        images: ["/thumbnail.png"],
+        title: `한입시네마 | ${movie.title}`,
+        description: movie.description,
+        images: [`${movie.posterImgUrl}`],
       },
     };
+  } catch (err) {
+    console.error(err);
+    notFound();
   }
-
-  return {
-    title: movie.title,
-    description: movie.description,
-    openGraph: {
-      title: movie.title,
-      description: movie.description,
-      images: movie.posterImgUrl,
-    },
-  };
 }
 
 export default async function MoviePage({
