@@ -66,8 +66,8 @@ export const useModalPosition = (
 
       await delay(10);
 
-      const finalTop = window.innerHeight * 0.05;
-      const finalLeft = window.innerWidth / 2 - initialWidth / 2;
+      const finalTop = window.innerHeight * 0.15;
+      const finalLeft = (window.innerWidth / 2 - initialWidth / 2) * 0.01;
 
       setPosition({
         transform: "scale3d(1, 1, 1)",

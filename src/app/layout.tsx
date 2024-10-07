@@ -29,8 +29,10 @@ export default function RootLayout({
       <body>
         <Header />
         <ErrorBoundary errorComponent={Error}>
-          <main>{children}</main>
-          {modal}
+          <main id="main" className="relative">
+            {children}
+            {modal}
+          </main>
         </ErrorBoundary>
         <Footer />
       </body>

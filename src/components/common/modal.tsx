@@ -75,6 +75,6 @@ export default function Modal({
         </div>
       </dialog>
     </>,
-    document.body
+    document.getElementById("main") as HTMLElement
   );
 }
